@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "LFX1WZIHArlcVVTqjxoWP5C+7eZeOiATaYAnb2SJJ5c=",
+  "Source": "LoanOrigination.Api",
+  "BasePath": "_content/LoanOrigination.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LoanOrigination.Api\\wwwroot",
+      "Source": "LoanOrigination.Api",
+      "ContentRoot": "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\wwwroot\\",
+      "BasePath": "_content/LoanOrigination.Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

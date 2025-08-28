@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LoanOrigination.Api.props" />
+</Project>

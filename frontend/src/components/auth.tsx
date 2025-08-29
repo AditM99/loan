@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import api from '../api/client'
 
-type User = { email: string; name: string; role: string }
+type User = { email: string; firstName: string; lastName: string; role: string }
 type AuthContextType = {
   user: User | null
   token: string | null
   login: (email: string, password: string) => Promise<void>
-  register: (name: string, email: string, password: string) => Promise<void>
+  register: (firstName: string, lastName: string, email: string, dateOfBirth: string, password: string) => Promise<void>
   logout: () => void
 }
 
@@ -27,16 +27,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }){
 
   async function login(email: string, password: string){
     const res = await api.post('/api/auth/login', { email, password })
-    const payload = res.data as { token: string, name: string, email: string, role: string }
-    const u = { email: payload.email, name: payload.name, role: payload.role }
+    const payload = res.data as { token: string, firstName: string, lastName: string, email: string, role: string }
+    const u = { email: payload.email, firstName: payload.firstName, lastName: payload.lastName, role: payload.role }
     setUser(u); setToken(payload.token); api.setToken(payload.token)
     localStorage.setItem('auth', JSON.stringify({ token: payload.token, user: u }))
   }
 
-  async function register(name: string, email: string, password: string){
-    const res = await api.post('/api/auth/register', { name, email, password })
-    const payload = res.data as { token: string, name: string, email: string, role: string }
-    const u = { email: payload.email, name: payload.name, role: payload.role }
+  async function register(firstName: string, lastName: string, email: string, dateOfBirth: string, password: string){
+    const res = await api.post('/api/auth/register', { 
+      firstName, 
+      lastName, 
+      email, 
+      dateOfBirth: new Date(dateOfBirth).toISOString(), 
+      password 
+    })
+    const payload = res.data as { token: string, firstName: string, lastName: string, email: string, role: string }
+    const u = { email: payload.email, firstName: payload.firstName, lastName: payload.lastName, role: payload.role }
     setUser(u); setToken(payload.token); api.setToken(payload.token)
     localStorage.setItem('auth', JSON.stringify({ token: payload.token, user: u }))
   }

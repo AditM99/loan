@@ -5,9 +5,11 @@ import { PasswordValidator, isPasswordValid } from '../components/PasswordValida
 
 export default function Register(){
   const { register } = useAuth()
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [dateOfBirth, setDateOfBirth] = useState('')
   const [error, setError] = useState<string | null>(null)
   const nav = useNavigate()
 
@@ -27,15 +29,24 @@ export default function Register(){
     e.preventDefault()
     setError(null)
 
-    const trimmedName = name.trim()
+    const trimmedFirstName = firstName.trim()
+    const trimmedLastName = lastName.trim()
     const trimmedEmail = email.trim()
 
-    if (!trimmedName){
-      alert('Name is required')
+    if (!trimmedFirstName){
+      alert('First name is required')
+      return
+    }
+    if (!trimmedLastName){
+      alert('Last name is required')
       return
     }
     if (!trimmedEmail){
       alert('Email is required')
+      return
+    }
+    if (!dateOfBirth){
+      alert('Date of birth is required')
       return
     }
     if (!passwordOk){
@@ -44,7 +55,7 @@ export default function Register(){
     }
 
     try {
-      await register(trimmedName, trimmedEmail, password)
+      await register(trimmedFirstName, trimmedLastName, trimmedEmail, dateOfBirth, password)
       alert('Your account has been created')
       nav('/')
     } catch (err: any) {
@@ -58,22 +69,63 @@ export default function Register(){
     <div className="card" style={{maxWidth: 420, margin: '40px auto'}}>
       <h2>Register</h2>
       <form onSubmit={submit}>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <div style={{ flex: 1 }}>
+            <label htmlFor="firstName">
+              First Name <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input 
+              id="firstName"
+              placeholder="Enter first name" 
+              value={firstName} 
+              onChange={e=>setFirstName(e.target.value)} 
+              required
+            />
+          </div>
+          <div style={{ flex: 1 }}>
+            <label htmlFor="lastName">
+              Last Name <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input 
+              id="lastName"
+              placeholder="Enter last name" 
+              value={lastName} 
+              onChange={e=>setLastName(e.target.value)} 
+              required
+            />
+          </div>
+        </div>
+
+        <label htmlFor="email">
+          Email Address <span style={{ color: 'red' }}>*</span>
+        </label>
         <input 
-          placeholder="Name" 
-          value={name} 
-          onChange={e=>setName(e.target.value)} 
-          required
-        />
-        <input 
-          placeholder="Email" 
+          id="email"
+          placeholder="Enter email address" 
           type="email"
           value={email} 
           onChange={e=>setEmail(e.target.value)} 
           required
         />
+
+        <label htmlFor="dateOfBirth">
+          Date of Birth <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input 
+          id="dateOfBirth"
+          type="date" 
+          value={dateOfBirth} 
+          onChange={e=>setDateOfBirth(e.target.value)} 
+          required
+        />
+
+        <label htmlFor="password">
+          Password <span style={{ color: 'red' }}>*</span>
+        </label>
         <div style={{ position: 'relative' }}>
           <input 
-            placeholder="Password" 
+            id="password"
+            placeholder="Enter password" 
             type="password" 
             value={password} 
             onChange={e=>setPassword(e.target.value)} 
@@ -81,6 +133,8 @@ export default function Register(){
           />
           <PasswordValidator password={password} />
         </div>
+
+        {error && <div className="badge" style={{ color: '#ef4444', backgroundColor: '#fef2f2', border: '1px solid #fecaca' }}>{error}</div>}
         <button type="submit">Create account</button>
       </form>
     </div>

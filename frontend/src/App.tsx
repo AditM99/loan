@@ -22,7 +22,7 @@ export default function App(){
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
           </>) : (<>
-            <span className="badge">{user.email}</span>
+            <span className="badge">{user.firstName} {user.lastName}</span>
             <button onClick={()=>{logout(); nav('/')}}>Logout</button>
           </>)}
         </div>

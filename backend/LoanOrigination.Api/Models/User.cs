@@ -12,8 +12,13 @@ namespace LoanOrigination.Api.Models
 
         [Required]
         [StringLength(100)]
-        [Column("name")]
-        public string Name { get; set; } = string.Empty;
+        [Column("first_name")]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(100)]
+        [Column("last_name")]
+        public string LastName { get; set; } = string.Empty;
 
         [Required]
         [StringLength(255)]

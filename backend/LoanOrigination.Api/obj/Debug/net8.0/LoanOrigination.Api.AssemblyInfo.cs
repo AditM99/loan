@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoanOrigination.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+701ad3a37aebd7af7c67b286ce82a1916d005a23")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoanOrigination.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoanOrigination.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

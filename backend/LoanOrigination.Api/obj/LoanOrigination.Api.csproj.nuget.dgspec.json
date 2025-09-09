@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj": {}
+    "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj": {}
   },
   "projects": {
-    "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj": {
+    "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj",
+        "projectUniqueName": "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj",
         "projectName": "LoanOrigination.Api",
-        "projectPath": "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj",
+        "projectPath": "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\LoanOrigination.Api.csproj",
         "packagesPath": "C:\\Users\\Adit\\.nuget\\packages\\",
-        "outputPath": "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\obj\\",
+        "outputPath": "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Adit\\AppData\\Roaming\\NuGet\\NuGet.Config"

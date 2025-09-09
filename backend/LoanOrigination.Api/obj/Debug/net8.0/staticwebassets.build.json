@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LFX1WZIHArlcVVTqjxoWP5C+7eZeOiATaYAnb2SJJ5c=",
+  "Hash": "ZTDZ3AOZcXxqorp6enu/EEzGou6wXYE80f2dG+oSulE=",
   "Source": "LoanOrigination.Api",
   "BasePath": "_content/LoanOrigination.Api",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "LoanOrigination.Api\\wwwroot",
       "Source": "LoanOrigination.Api",
-      "ContentRoot": "D:\\ai-los-fullstack-full\\backend\\LoanOrigination.Api\\wwwroot\\",
+      "ContentRoot": "D:\\ai-los-fullstack-full\\loan\\backend\\LoanOrigination.Api\\wwwroot\\",
       "BasePath": "_content/LoanOrigination.Api",
       "Pattern": "**"
     }

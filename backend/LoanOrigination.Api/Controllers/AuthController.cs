@@ -35,18 +35,20 @@ namespace LoanOrigination.Api.Controllers
                 return BadRequest(new { error = "Email already exists" });
 
             var user = new User
-            {
-                Name = req.Name,
-                Email = req.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password),
-                Role = "User"
-            };
+{
+    FirstName = req.FirstName,
+    LastName = req.LastName,
+    Email = req.Email,
+    PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password),
+    Role = "User"
+};
 
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
 
-            var token = _jwt.GenerateToken(user);
-            return new AuthResponse(token, user.Name, user.Email, user.Role);
+
+var token = _jwt.GenerateToken(user);
+return new AuthResponse(token, $"{user.FirstName} {user.LastName}".Trim(), user.Email, user.Role);
         }
 
         [HttpPost("login")]
@@ -56,8 +58,9 @@ namespace LoanOrigination.Api.Controllers
             if (user == null || !BCrypt.Net.BCrypt.Verify(req.Password, user.PasswordHash))
                 return Unauthorized(new { error = "Invalid credentials" });
 
-            var token = _jwt.GenerateToken(user);
-            return new AuthResponse(token, user.Name, user.Email, user.Role);
+var token = _jwt.GenerateToken(user);
+return new AuthResponse(token, $"{user.FirstName} {user.LastName}".Trim(), user.Email, user.Role);
+
         }
 
         private (bool IsValid, string ErrorMessage) ValidatePassword(string password)

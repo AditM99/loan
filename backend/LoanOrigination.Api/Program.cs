@@ -72,9 +72,10 @@ using (var scope = app.Services.CreateScope())
         var admin = new User
         {
             Email = "admin@local",
-            Name = "Admin",
+            FirstName = "Admin",
+            LastName = "",
             Role = "Admin",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123$")
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password" /* change me! */)
         };
         db.Users.Add(admin);
         db.SaveChanges();

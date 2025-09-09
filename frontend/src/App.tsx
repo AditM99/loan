@@ -5,6 +5,8 @@ import Apply from "./pages/Apply";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import { useAuth } from "./components/auth";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 export default function App() {
   const { user, logout } = useAuth();
@@ -51,6 +53,8 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Routes>
       </div>
     </>

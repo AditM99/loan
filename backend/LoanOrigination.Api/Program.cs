@@ -27,6 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddSingleton<AiEligibilityService>(); // singleton holds trained model
 builder.Services.AddScoped<DocumentExtractionService>();
+builder.Services.AddScoped<IEmailService, ConsoleEmailService>();
 
 // CORS for Vite dev
 builder.Services.AddCors(opt =>

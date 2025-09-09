@@ -42,6 +42,12 @@ namespace LoanOrigination.Api.Models
         [Column("updated_at")]
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
+        [Column("password_reset_token")]
+        public string? PasswordResetToken { get; set; }
+
+        [Column("password_reset_token_expires")]
+        public DateTime? PasswordResetTokenExpires { get; set; }
+
         // Navigation properties
         public virtual ICollection<LoanApplication> Applications { get; set; } = new List<LoanApplication>();
     }

@@ -273,17 +273,31 @@ namespace LoanOrigination.Api.Migrations
                         .HasColumnType("character varying(255)")
                         .HasColumnName("email");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)")
-                        .HasColumnName("name");
+                        .HasColumnName("first_name");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("last_name");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)")
                         .HasColumnName("password_hash");
+
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("text")
+                        .HasColumnName("password_reset_token");
+
+                    b.Property<DateTime?>("PasswordResetTokenExpires")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("password_reset_token_expires");
 
                     b.Property<string>("Role")
                         .IsRequired()
